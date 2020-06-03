@@ -2,20 +2,22 @@ import sys
 
 class Solution:
     def __init__(self):
-        self.__stack=[]
-        self.__queue=[]
-    
-    def pushCharacter(self, ch):
-        self.__stack.append(ch)
+        self.stack = []
+        self.queue = []
 
-    def enqueueCharacter(self,ch):
-        self.__queue(0, ch)
-    
     def popCharacter(self):
-        return self.__stack.pop()
+        return self.stack.pop()
 
-    def dequeueCharacter (self):
-        return self.__queue.pop()
+    def pushCharacter(self, char):
+        self.stack.append(char)
+
+    def dequeueCharacter(self):
+        char = self.queue[0]
+        self.queue = self.queue[1:]
+        return char
+
+    def enqueueCharacter(self, char):
+        self.queue.append(char)
 
 # read the string s
 s=input()
